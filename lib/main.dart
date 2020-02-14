@@ -10,9 +10,13 @@ class XylophoneApp extends StatelessWidget {
   }
 
   Widget _buttonPlaySong(String filename, Color color) {
-    return FlatButton(
-      onPressed: () => _playsound(filename),
-      color: color,
+    return Container(
+      child: Expanded(
+        child: FlatButton(
+          onPressed: () => _playsound(filename),
+          color: color,
+        ),
+      ),
     );
   }
 
@@ -20,8 +24,10 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               _buttonPlaySong('note1.wav', Colors.red),
               _buttonPlaySong('note2.wav', Colors.orange),
